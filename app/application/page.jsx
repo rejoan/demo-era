@@ -7,7 +7,10 @@ import { readItems } from '@directus/sdk';
 export async function ApplicationTable() {
   const response = await getUserData();
 
-  const applications = await client.request(readItems('applications'));
+  const applications = await client.request(readItems('applications',{
+    filter: { user_created: { _eq: response?.user?.id } }
+
+  }));
     
   return (
         <div className="grid grid-cols-12 gap-4">
