@@ -11,10 +11,10 @@ export async function ApplicationTable() {
     
   return (
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-2 bg-blue-900 h-screen">
-            <Link href="/application"><p className="text-white hover:bg-blue-600 p-5">My Application</p></Link>
-            <Link href="/application/new"><p className="text-white hover:bg-blue-500 p-5">Create</p></Link>
-            <Link href="/logout"><p className="text-white bg-red-400 hover:bg-red-500 p-5">Sign Out</p></Link>
+          <div className="col-span-2 bg-green-900 h-screen">
+            <Link href="/application"><p className="text-white hover:bg-green-800 p-5">My Application</p></Link>
+            <Link href="/application/new"><p className="text-white hover:bg-green-800 p-5">Create</p></Link>
+            <Link href="/logout"><p className="text-white hover:bg-red-500 p-5">Sign Out</p></Link>
           </div>
         <div className="col-span-10">
           <div className="overflow-x-auto shadow-md">
