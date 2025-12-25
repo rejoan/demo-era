@@ -43,13 +43,13 @@ export default function LoginPage() {
             <h2 className="text-center text-2xl/9 font-bold tracking-tight">Login</h2>
             <div>
               <div className="mt-2">
-                <input id="email" type="email" name="email" required autoComplete="email" className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Email"/>
+                <input id="email" type="email" name="email" required autoComplete="email" className="block w-full rounded-md bg-blue-100 px-3 py-1.5 outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6 border-solid" placeholder="Email"/>
               </div>
             </div>
 
             <div>
               <div className="mt-2">
-                <input id="password" type="password" name="password" required autoComplete="current-password" className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Password" />
+                <input id="password" type="password" name="password" required autoComplete="current-password" className="block w-full rounded-md bg-blue-100 px-3 py-1.5 outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Password" />
               </div>
             </div>
 
