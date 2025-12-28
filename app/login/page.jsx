@@ -2,8 +2,6 @@
 import { FormEvent,useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
  
 export default function LoginPage() {
   const router = useRouter()
@@ -55,7 +53,7 @@ export default function LoginPage() {
               </div>
 
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-green-900 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-green-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"><FontAwesomeIcon className="me-2" icon={faRightToBracket} style={{ 'height': 'auto' }}/> Sign in</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-green-900 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-green-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"> Sign in</button>
               </div>
             </form>
           </div>
