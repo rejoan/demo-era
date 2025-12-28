@@ -1,4 +1,4 @@
-import { getUserData } from '@/lib/dal';
+import { getUserData, fetchNotifications } from '@/lib/dal';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import client from '@/lib/directus';
@@ -6,7 +6,7 @@ import { readItems } from '@directus/sdk';
 
 export async function ApplicationTable() {
   const response = await getUserData();
-
+  const notifications = await fetchNotifications(response?.user?.id);
   const applications = await client.request(readItems('applications',{
     filter: { user_created: { _eq: response?.user?.id } }
   }));
@@ -17,11 +17,15 @@ export async function ApplicationTable() {
           <Link href="/"><p className="text-center text-white ps-5 pt-3"></p></Link>
             <Link href="/application"><p className="text-white hover:bg-green-800 p-5">My Application</p></Link>
             <Link href="/application/new"><p className="text-white hover:bg-green-800 p-5">Create</p></Link>
+            <Link href="/notification"><p className="text-white hover:bg-green-800 p-5">Notifications</p></Link>
             <Link href="/logout"><p className="text-white hover:bg-red-500 p-5">Sign Out</p></Link>
           </div>
           <div className="col-span-10">
               <div className="text-right bg-white p-5">
-                {response?.user?.first_name}
+                <div className="text-right bg-white p-5">
+                 <Link href="/notification"><span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform -translate-y-1/2 bg-red-600 rounded-full">{notifications.length}</span></Link>
+                <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-purple-700/10">{response?.user?.first_name}</span>
+              </div>
               </div>
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
@@ -42,7 +46,7 @@ export async function ApplicationTable() {
                       Status
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Actions
+                      Comment
                     </th>
                   </tr>
                 </thead>
@@ -55,7 +59,7 @@ export async function ApplicationTable() {
                       <td className="px-6 py-4 whitespace-nowrap">{item.current_step}</td>
                       <td className="px-6 py-4 whitespace-nowrap">{item.status}</td>      
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        ...
+                        {item.rejection_comment}
                       </td>
                     </tr>
                   ))}

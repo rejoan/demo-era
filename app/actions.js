@@ -8,7 +8,7 @@ export async function createApplication(formData) {
   const parking_coordinates = formData.get('parking_coordinates');
   let redirectPath;
   try {
-    const newItem = await client.request(
+     await client.request(
       createItem('applications', {
         parking_address: parking_address,
         parking_coordinates: parking_coordinates
