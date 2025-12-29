@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import client from '@/lib/directus';
 import { readItems } from '@directus/sdk';
+import Navbar from '../components/Navbar';
 
 export async function ApplicationTable() {
   const response = await getUserData();
@@ -13,13 +14,7 @@ export async function ApplicationTable() {
     
   return (
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-2 bg-green-900 h-screen">
-          <Link href="/"><p className="text-center text-white ps-5 pt-3"></p></Link>
-            <Link href="/application"><p className="text-white hover:bg-green-800 p-5">My Application</p></Link>
-            <Link href="/application/new"><p className="text-white hover:bg-green-800 p-5">Create</p></Link>
-            <Link href="/notification"><p className="text-white hover:bg-green-800 p-5">Notifications</p></Link>
-            <Link href="/logout"><p className="text-white hover:bg-red-500 p-5">Sign Out</p></Link>
-          </div>
+          <Navbar />
           <div className="col-span-10">
               <div className="text-right bg-white p-5">
                 <div className="text-right bg-white p-5">

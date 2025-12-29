@@ -1,19 +1,14 @@
 import { createApplication } from '@/app/actions';
 import { getUserData,fetchNotifications } from '@/lib/dal';
 import Link from 'next/link';
+import Navbar from '../../components/Navbar';
 
 export default async function CreatePage() {
 const response = await getUserData();
 const notifications = await fetchNotifications(response?.user?.id);
-  return (   
+  return (
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-2 bg-green-900 h-screen">
-          <Link href="/"><p className="text-center text-white ps-5 pt-3"></p></Link>
-            <Link href="/application"><p className="text-white hover:bg-green-800 p-5">My Application</p></Link>
-            <Link  href="/application/new"><p className="text-white hover:bg-green-800 p-5">Create</p></Link>
-            <Link href="/notification"><p className="text-white hover:bg-green-800 p-5">Notifications</p></Link>
-            <Link  href="/logout"><p className="text-white hover:bg-red-500 p-5">Sign Out</p></Link>
-          </div>
+          <Navbar />
         <div className="col-span-10">
           <div className="text-right bg-white p-5">
             <Link href="/notification"><span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform -translate-y-1/2 bg-red-600 rounded-full">{notifications.length}</span></Link>
