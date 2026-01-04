@@ -9,6 +9,7 @@ export async function ApplicationTable() {
   const response = await getUserData();
   const notifications = await fetchNotifications(response?.user?.id);
   const applications = await client.request(readItems('applications',{
+    sort: ['-date_created'],
     filter: { user_created: { _eq: response?.user?.id } }
   }));
     
